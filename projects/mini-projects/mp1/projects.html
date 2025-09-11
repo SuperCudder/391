@@ -18,8 +18,6 @@
         <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="https://github.com/SuperCudder">GitHub</a></li>
-        <li><a href="calculator.html">Calculator</a></li>
-
     </ul>
 </nav>
 <main>
@@ -29,11 +27,85 @@
     designed to hold attention. Gamification of linguistics developed by a team of 5, cross college students. </p>
     <h3>ASL Hand Recognition Web Application for IFusion - <a href="https://github.com/meta61/Sign_Language_Recognition"> Github </a></h3>
     <p> A web hosted python application which recognizes American Sign Language (ASL) hand gestures based on hand landmark points. It uses machine learning to predict the corresponding ASL sign language gesture based on real-time input from the webcam.</p>
+
+    <h2>JavaScript Calculator</h2>
+    <div id="calculator-container">
+        <div id="calculator">
+            <div id="input-section">
+                <label for="input-1"></label><input type="text" id="input-1" placeholder="Enter first input">
+                <label for="input-2"></label><input type="text" id="input-2" placeholder="Enter second input">
+            </div>
+
+            <div id="button-section">
+                <button onclick="calculator('+')">+</button>
+                <button onclick="calculator('-')">-</button>
+                <button onclick="calculator('*')">*</button>
+                <button onclick="calculator('/')">/</button>
+                <button onclick="calculator('^')">^</button>
+                <button onclick="clear()">Clear</button>
+            </div>
+
+            <div id="result-section">
+                <h3 id="output">Result will appear here</h3>
+            </div>
+        </div>
+    </div>
 </main>
 
 <footer>
     <p><a href="credits.html">Credits</a> &#169; 2025 Jonah Kastelic. All rights reserved. </p>
 </footer>
-</body>
 
+<script>
+    function calculator(op) {
+        let a = parseFloat(document.getElementById("input-1").value); /*Two input calculator, so fetch both inputs from html doc*/
+        let b = parseFloat(document.getElementById("input-2").value);
+
+        if (isNaN(a) || isNaN(b)) { /*not so robust NaN check and error catch*/
+            display("invalid input");
+            return;
+        }
+
+        let result;
+        switch (op) { /*switch flowchart for arithmetic operations*/
+            case "+": result = a + b; break; /*add*/
+            case "-": result = a - b; break; /*subtract*/
+            case "*": result = a * b; break; /*multiply*/
+            case "/": if(b === 0) { /*when dividing check if dividing by 0*/
+                display("div by 0");
+                return;
+            }
+            result = a / b; break;
+            case "^": result = 1; for (let i = 0; i < b; i++) { /*for loop as required for power func*/
+                result *= a;
+            }
+            break;
+            default:
+                display("invalid input");
+                return;
+        }
+        display(result);
+    }
+
+    function display(result) {
+        let outputElement = document.getElementById("output");
+        outputElement.innerHTML = String(result);
+
+        if (result < 0) {
+            outputElement.className = "negative-result";
+
+        } else {
+            outputElement.className = "";
+        }
+    }
+    function clear() {
+        document.getElementById("input-1").value = "";
+        document.getElementById("input-2").value = "";
+        document.getElementById("output").innerHTML = "Result will appear here";
+        document.getElementById("output").className = "";
+    }
+
+
+</script>
+</body>
 </html>

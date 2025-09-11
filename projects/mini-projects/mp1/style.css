@@ -109,10 +109,140 @@ footer a {
     color: #FAF3E0;
     text-decoration: none;
 }
-@media screen and (max-width: 800px) {
+/* Calculator styling */
+#calculator-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #FAF3E0;
+    border: 2px solid #FF7D00;
+}
+
+#calculator {
+    background-color: #FAF3E0;
+    padding: 25px;
+    margin: auto;
+    border: 1px solid #1A1A1A;
+    max-width: 400px;
+}
+
+#input-section {
+    margin-bottom: 20px;
+}
+
+#input-section input {
+    width: 48%;
+    padding: 12px;
+    margin: 2% 1%;
+    border: 2px solid #1A1A1A;
+    font-size: calc(14px + 0.2vw);
+}
+
+#button-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#button-section button {
+    width: 30%;
+    padding: 15px;
+    margin: 5px 1.5%;
+    background-color: #FF7D00;
+    color: #FAF3E0;
+    border: none;
+    font-size: calc(16px + 0.3vw);
+    cursor: pointer;
+}
+
+#button-section button:hover {
+    background-color: #FF7D00;
+}
+
+#result-section {
+    text-align: center;
+    padding: 15px;
+    background-color: #FAF3E0;
+    border: 2px solid #1A1A1A;
+}
+
+#output {
+    color: #1A1A1A;
+    font-size: calc(18px + 0.4vw);
+    margin: 0;
+}
+
+.negative-result {
+    color: red !important;
+    background-color: #FAF3E0;
+}
+@media screen and (max-width: 750px) {
     body {
-        font-size: calc(10px + 0.5vw);
+        margin: 0 2%;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    nav {
         width: 100%;
+        display: block;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+
+    nav li {
+        display: inline-block;
+        border-bottom: none;
+        border-right: 1px solid #2c3e50;
+        padding: 8px 15px;
+    }
+
+    nav li:last-child {
+        border-right: none;
+    }
+
+    main {
+        width: 100%;
+        display: block;
+        padding: 20px;
+    }
+
+    #calculator {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    #input-section input {
+        width: 100%;
+        margin: 2% 0;
+    }
+
+    #button-section button {
+        width: 45%;
+        margin: 2.5%;
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: calc(20px + 2vw);
+    }
+
+    header p {
+        font-size: calc(12px + 1vw);
+    }
+
+    main h2 {
+        font-size: calc(18px + 1.5vw);
+    }
+
+    main h3 {
+        font-size: calc(14px + 1vw);
+    }
+
+    main p {
+        font-size: calc(12px + 0.8vw);
     }
 }
 
