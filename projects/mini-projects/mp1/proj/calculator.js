@@ -20,7 +20,7 @@ function calculator(op) {
             break;
         case "/":
             if (b === 0) { /*when dividing check if dividing by 0*/
-                display("div by 0");
+                display("Err: div by 0");
                 return;
             }
             result = a / b;
