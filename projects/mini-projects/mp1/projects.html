@@ -41,8 +41,8 @@
                 <button onclick="calculator('-')">-</button>
                 <button onclick="calculator('*')">*</button>
                 <button onclick="calculator('/')">/</button>
-                <button onclick="calculator('^')">^</button>
-                <button onclick="clear()">Clear</button>
+                <button onclick="calculator('**')">**</button>
+                <button onclick="clearCalc()">Clear</button>
             </div>
 
             <div id="result-section">
@@ -55,57 +55,6 @@
 <footer>
     <p><a href="credits.html">Credits</a> &#169; 2025 Jonah Kastelic. All rights reserved. </p>
 </footer>
-
-<script>
-    function calculator(op) {
-        let a = parseFloat(document.getElementById("input-1").value); /*Two input calculator, so fetch both inputs from html doc*/
-        let b = parseFloat(document.getElementById("input-2").value);
-
-        if (isNaN(a) || isNaN(b)) { /*not so robust NaN check and error catch*/
-            display("invalid input");
-            return;
-        }
-
-        let result;
-        switch (op) { /*switch flowchart for arithmetic operations*/
-            case "+": result = a + b; break; /*add*/
-            case "-": result = a - b; break; /*subtract*/
-            case "*": result = a * b; break; /*multiply*/
-            case "/": if(b === 0) { /*when dividing check if dividing by 0*/
-                display("div by 0");
-                return;
-            }
-            result = a / b; break;
-            case "^": result = 1; for (let i = 0; i < b; i++) { /*for loop as required for power func*/
-                result *= a;
-            }
-            break;
-            default:
-                display("invalid input");
-                return;
-        }
-        display(result);
-    }
-
-    function display(result) {
-        let outputElement = document.getElementById("output");
-        outputElement.innerHTML = String(result);
-
-        if (result < 0) {
-            outputElement.className = "negative-result";
-
-        } else {
-            outputElement.className = "";
-        }
-    }
-    function clear() {
-        document.getElementById("input-1").value = " ";
-        document.getElementById("input-2").value = " ";
-        document.getElementById("output").innerHTML = "Result will appear here";
-        document.getElementById("output").value = " ";
-    }
-
-
-</script>
+<script src="calculator.js"></script>
 </body>
 </html>

@@ -168,6 +168,9 @@ footer a {
 }
 
 #output {
+    display: inline-block;
+    min-width: 200px;
+    min-height: 30px;
     color: #1A1A1A;
     font-size: calc(18px + 0.4vw);
     margin: 0;
