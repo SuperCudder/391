@@ -1,5 +1,5 @@
 function calculator(op) {
-    let a = Number(document.getElementById("input-1").value); /*Two input calculator, so fetch both inputs from html doc*/
+    let a = Number(document.getElementById("input-1").value); /*two input calculator, so fetch both inputs from html doc*/
     let b = Number(document.getElementById("input-2").value);
 
     if (isNaN(a) || isNaN(b)) { /*not so robust NaN check and error catch*/
@@ -39,9 +39,9 @@ function calculator(op) {
 }
 
 function display(result) {
-    let outputElement = document.getElementById("output");
-    outputElement.innerHTML = String(result);
-    outputElement.className = "";
+    let elemOut = document.getElementById("output");
+    elemOut.innerHTML = String(result);
+    elemOut.className = "";
 
 }
 

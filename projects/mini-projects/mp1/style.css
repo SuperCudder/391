@@ -5,10 +5,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html, body {
     height: 100%;
     margin: 0;
 }
+
 body { /*initialize body*/
     background-color: #FAF3E0;
     font-family: Domine, Arial, Helvetica, sans-serif; /*google font*/
@@ -17,25 +19,31 @@ body { /*initialize body*/
     display: flex; /*flexbox container - children become flexbox items*/
     flex-direction: column;
 }
-body h2{
+
+body h2 {
     font-size: calc(20px + 0.5vw);
 }
+
 body h3 {
     font-size: calc(10px + 0.5vw);
 }
+
 body p {
     font-size: calc(10px + 0.5vw);
 }
+
 header {
     background-color: #1A1A1A;
     padding: 20px;
     text-align: left;
 }
+
 header h1 {
     font-size: calc(24px + 1vw);
     margin-bottom: 10px;
     color: #FF7D00;
 }
+
 header p {
     font-size: calc(14px + 0.5vw);
     color: #FF7D00;
@@ -47,46 +55,61 @@ header p {
     flex: 1; /*allow items to fill*/
 }
 
-nav{
+nav {
     background-color: #FF7D00;
     width: 10%; /*sleak, narrower look*/
     text-align: center;
     max-width: 30%; /*REQUIREMENT: max width cannot pass 30% parent*/
     flex-shrink: 0; /*keep from shrinking in tight space*/
 }
-nav ul{
+
+nav ul {
     display: flex;
     flex-direction: column; /*vert nav when window > 750px*/
     list-style: none; /*remove bullets*/
     margin: 0;
     padding: 0;
 }
-nav li{
+
+nav li {
     border-bottom: 3px solid #1A1A1A;
     width: 100%;
     border-left: 2px solid #1A1A1A;
     border-right: 2px solid #1A1A1A;
 }
-nav a{ /*nav links*/
+
+nav a { /*nav links*/
     text-decoration: none; /*removes underline*/
     font-family: Domine, Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #FAF3E0;
 }
-nav a:hover{
+
+nav a:hover {
     color: #FF7D00;
 }
-nav li:hover{
+
+nav li:hover {
     background-color: #1A1A1A;
 }
 
-img {
+.idxImg { /*specific to homepage img*/
     float: right; /*keep default position right*/
-    max-width: 100%;
     margin-right: -10px; /*spacing adjust for float*/
     margin-top: -72px;
     margin-left: 10px;
 }
+
+.eduMain {
+    float: right;
+    display: flex;
+    flex-direction: row;
+}
+
+img {
+    max-width: 100%;
+}
+
 main {
     background-color: #FAF3E0;
     padding: 10px;
@@ -96,25 +119,30 @@ main {
     vertical-align: top; /*align top of nav*/
     min-height: 400px;
 }
+
 main h1 {
     margin: 5px;
 }
+
 main h2 {
     color: #1A1A1A;
     font-size: calc(15px + 0.5vw); /*responsive*/
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
 main h3 {
     font-size: calc(15px + 0.5vw);
     margin-bottom: 5px;
     margin-top: 5px;
 }
+
 main ul {
     list-style-type: none; /*remove bulletpoints*/
     padding: 0;
     margin: 0;
 }
+
 main p {
     line-height: 1.6;
     margin-bottom: 5px;
@@ -122,21 +150,25 @@ main p {
     font-size: calc(14px + 0.2vw);
     color: #1A1A1A;
 }
+
 table {
     border-collapse: collapse; /*combine borders for aesthetic*/
     margin: 15px 0;
     width: 60%;
     text-align: left;
 }
+
 table th, td {
     border: 2px solid #FF7D00;
     padding: 8px 12px;
 }
+
 table th {
     background-color: #1A1A1A;
     font-weight: bold;
     color: #FF7D00;
 }
+
 footer {
     bottom: 0;
     left: 0;
@@ -148,10 +180,12 @@ footer {
     color: #FAF3E0;
 
 }
+
 footer a {
     color: #FAF3E0;
     text-decoration: none;
 }
+
 /* calc layout/style*/
 #calculator-container {
     margin-top: 30px;
@@ -227,31 +261,41 @@ footer a {
     flex-direction: column;
     text-align: center;
 }
+
 .creds img {
     margin: 0 0 10px 0; /*spacing below image*/
     float: none; /*remove prev float*/
 }
-@media screen and (max-width: 750px) { /*header responsiveness for smaller screens < 750px*/
+
+@media screen and (max-width: 750px) {
+    /*header responsiveness for smaller screens < 750px*/
     header {
         text-align: center;
     }
 }
-@media screen and (max-width: 1000px) { /*webpage responsiveness for medium < 1000px screens*/
+
+@media screen and (max-width: 1000px) {
+    /*webpage responsiveness for medium < 1000px screens*/
     body {
         margin: 0; /*remove horizontal margins*/
     }
+
     .creds {
         order: 3; /*stupid fix for stupid problem, saw order in css: https://developer.mozilla.org/en-US/docs/Web/CSS/order*/
-    }   /*works well enough although not taught, keeps certain shifting items such as images from floating inside text*/
+    }
+
+    /*works well enough although not taught, keeps certain shifting items such as images from floating inside text*/
     .idxMain {
         display: flex;
         flex-direction: column; /*REQUIREMENT: stack nav and main vertically (important for requirements)*/
     }
+
     img { /*main photo in index.html*/
         order: 1; /*keep photo towards top, above text*/
         float: left; /*probably a better aternative to this - currently moves pic to left above text when < 1000px*/
         max-width: 100%;
     }
+
     nav {
         width: 100%; /*new width for horizontal mode*/
         max-width: 100%;
@@ -292,6 +336,7 @@ footer a {
         display: block;
         margin: 0 auto 20px;
     }
+
     main {
         width: 100%; /*full width on <1000px*/
         background-color: #FAF3E0;
@@ -299,15 +344,18 @@ footer a {
         order: 2;
         max-width: 100%;
     }
+
     main h1 {
         margin-right: 100px;
     }
+
     main h2 {
         color: #1A1A1A;
         font-size: calc(20px + 0.5vw);
         margin-top: 25px;
         margin-bottom: 15px;
     }
+
     footer {
         order: 3; /*force footer to bottom*/
     }
