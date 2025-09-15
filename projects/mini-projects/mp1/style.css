@@ -1,18 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;700&display=swap');
+
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 html, body {
     height: 100%;
     margin: 0;
 }
-body {
-    position: relative;
-    padding-bottom: 50px;
+body { /*initialize body*/
     background-color: #FAF3E0;
-    font-family: Domine, Arial, Helvetica, sans-serif;
-    margin: 0 10%;
-    min-height: calc(100vh - 20px);
+    font-family: Domine, Arial, Helvetica, sans-serif; /*google font*/
+    margin: 0 10%; /*no top/bottom margin but 10% l/r margin of parent*/
+    line-height: 1.6;
+    display: flex; /*flexbox container - children become flexbox items*/
+    flex-direction: column;
 }
 body h2{
     font-size: calc(20px + 0.5vw);
@@ -25,9 +28,8 @@ body p {
 }
 header {
     background-color: #1A1A1A;
-    color: #1A1A1A;
     padding: 20px;
-    text-align: center;
+    text-align: left;
 }
 header h1 {
     font-size: calc(24px + 1vw);
@@ -38,59 +40,102 @@ header p {
     font-size: calc(14px + 0.5vw);
     color: #FF7D00;
 }
+
+.idxMain { /*main layout for page content, */
+    display: flex;
+    flex-direction: row; /*side by side items*/
+    flex: 1; /*allow items to fill*/
+}
+
 nav{
-    border: 3px solid #1A1A1A;
     background-color: #FF7D00;
-    padding: 10px;
-    width: 100%;
-    display: block;
-    vertical-align: top;
+    width: 10%; /*sleak, narrower look*/
+    text-align: center;
+    max-width: 30%; /*REQUIREMENT: max width cannot pass 30% parent*/
+    flex-shrink: 0; /*keep from shrinking in tight space*/
 }
 nav ul{
-    padding-left: 0;
-    list-style-type: none;
+    display: flex;
+    flex-direction: column; /*vert nav when window > 750px*/
+    list-style: none; /*remove bullets*/
+    margin: 0;
+    padding: 0;
 }
 nav li{
-    display: inline-block;
-    border-bottom: none;
+    border-bottom: 3px solid #1A1A1A;
+    width: 100%;
+    border-left: 2px solid #1A1A1A;
     border-right: 2px solid #1A1A1A;
-    padding: 3px 18px;
-
 }
-nav li:last-child{
-    border-right: none;
-}
-nav a{
-    text-decoration: none;
+nav a{ /*nav links*/
+    text-decoration: none; /*removes underline*/
     font-family: Domine, Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #FAF3E0;
 }
 nav a:hover{
-    color: #1A1A1A;
+    color: #FF7D00;
+}
+nav li:hover{
+    background-color: #1A1A1A;
+}
+
+img {
+    float: right; /*keep default position right*/
+    max-width: 100%;
+    margin-right: -10px; /*spacing adjust for float*/
+    margin-top: -72px;
+    margin-left: 10px;
 }
 main {
     background-color: #FAF3E0;
     padding: 10px;
     width: 70%;
+    flex-grow: 1; /*take up horizontal space in flex cont*/
     display: inline-block;
-    vertical-align: top;
+    vertical-align: top; /*align top of nav*/
     min-height: 400px;
+}
+main h1 {
+    margin: 5px;
 }
 main h2 {
     color: #1A1A1A;
-    font-size: calc(10px + 0.5vw);
-    margin-top: 25px;
-    margin-bottom: 15px;
+    font-size: calc(15px + 0.5vw); /*responsive*/
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+main h3 {
+    font-size: calc(15px + 0.5vw);
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+main ul {
+    list-style-type: none; /*remove bulletpoints*/
+    padding: 0;
+    margin: 0;
 }
 main p {
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    margin-top: 5px;
     font-size: calc(14px + 0.2vw);
     color: #1A1A1A;
 }
 table {
-    border-collapse: collapse;
+    border-collapse: collapse; /*combine borders for aesthetic*/
+    margin: 15px 0;
+    width: 60%;
+    text-align: left;
+}
+table th, td {
+    border: 2px solid #FF7D00;
+    padding: 8px 12px;
+}
+table th {
+    background-color: #1A1A1A;
+    font-weight: bold;
+    color: #FF7D00;
 }
 footer {
     bottom: 0;
@@ -107,7 +152,7 @@ footer a {
     color: #FAF3E0;
     text-decoration: none;
 }
-/* Calculator styling */
+/* calc layout/style*/
 #calculator-container {
     margin-top: 30px;
     padding: 20px;
@@ -115,21 +160,22 @@ footer a {
     border: 2px solid #FF7D00;
 }
 
-#calculator {
+#calculator { /*REQUIREMENT: js calculator*/
     background-color: #FAF3E0;
     padding: 25px;
-    margin: auto;
+    margin: auto; /*horizontal centering*/
     max-width: 400px;
 }
 
-#input-section {
+#input-section { /*calc input boxes*/
+    text-align: center;
     margin-bottom: 20px;
 }
 
 #input-section input {
     background-color: #FAF3E0;
     color: #FF7D00;
-    width: 48%;
+    width: 48%; /*side by side input*/
     padding: 12px;
     margin: 2% 1%;
     border: 2px solid #1A1A1A;
@@ -153,11 +199,11 @@ footer a {
     color: #FAF3E0;
     border: none;
     font-size: calc(16px + 0.3vw);
-    cursor: pointer;
+    cursor: pointer; /*webstorm autofill but good for aesthetic, alters mouse pointer to on buttons for responsiveness*/
 }
 
 #button-section button:hover {
-    background-color: #FF7D00;
+    background-color: #1A1A1A;
 }
 
 #result-section {
@@ -176,79 +222,93 @@ footer a {
     margin: 0;
 }
 
-.negative-result {
-    color: red !important;
-    background-color: #FAF3E0;
+.creds {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
-@media screen and (max-width: 768px) {
-    body {
-        margin: 0 2%;
-    }
-
+.creds img {
+    margin: 0 0 10px 0; /*spacing below image*/
+    float: none; /*remove prev float*/
+}
+@media screen and (max-width: 750px) { /*header responsiveness for smaller screens < 750px*/
     header {
         text-align: center;
     }
-
+}
+@media screen and (max-width: 1000px) { /*webpage responsiveness for medium < 1000px screens*/
+    body {
+        margin: 0; /*remove horizontal margins*/
+    }
+    .creds {
+        order: 3; /*stupid fix for stupid problem, saw order in css: https://developer.mozilla.org/en-US/docs/Web/CSS/order*/
+    }   /*works well enough although not taught, keeps certain shifting items such as images from floating inside text*/
+    .idxMain {
+        display: flex;
+        flex-direction: column; /*REQUIREMENT: stack nav and main vertically (important for requirements)*/
+    }
+    img { /*main photo in index.html*/
+        order: 1; /*keep photo towards top, above text*/
+        float: left; /*probably a better aternative to this - currently moves pic to left above text when < 1000px*/
+        max-width: 100%;
+    }
     nav {
-        width: 100%;
-        display: block;
+        width: 100%; /*new width for horizontal mode*/
+        max-width: 100%;
+        order: 0; /*keep nav under header but above everything else while horizontal*/
     }
 
-    nav ul {
-        text-align: center;
+    nav ul { /*horizontal nav on smaller screen*/
+        flex-direction: row;
     }
 
     nav li {
-        display: inline-block;
-        border-bottom: none;
-        border-right: 1px solid #2c3e50;
-        padding: 8px 15px;
+        margin: 0;
+        width: auto;
+        flex: 1;
+        background-color: #FF7D00;
+        border-left: 2px solid #1A1A1A;
+        border-right: 2px solid #1A1A1A;
+        border-top: 2px solid #1A1A1A;
+    }
+
+    nav li:hover {
+        background-color: #1A1A1A;
     }
 
     nav li:last-child {
-        border-right: none;
+        border-right: 3px solid #1A1A1A;
     }
 
-    main {
-        width: 100%;
+    nav a {
+        text-align: center;
+        padding: 10px 5px;
+        font-size: calc(10px + 0.3vw);
+    }
+
+    .idxMain main img {
+        order: 1;
+        float: none; /*center img in main*/
         display: block;
+        margin: 0 auto 20px;
+    }
+    main {
+        width: 100%; /*full width on <1000px*/
+        background-color: #FAF3E0;
         padding: 20px;
-    }
-
-    #calculator {
+        order: 2;
         max-width: 100%;
-        padding: 15px;
     }
-
-    #input-section input {
-        width: 100%;
-        margin: 2% 0;
+    main h1 {
+        margin-right: 100px;
     }
-
-    #button-section button {
-        width: 45%;
-        margin: 2.5%;
-        padding: 12px;
-    }
-
-    header h1 {
-        font-size: calc(20px + 2vw);
-    }
-
-    header p {
-        font-size: calc(12px + 1vw);
-    }
-
     main h2 {
-        font-size: calc(18px + 1.5vw);
+        color: #1A1A1A;
+        font-size: calc(20px + 0.5vw);
+        margin-top: 25px;
+        margin-bottom: 15px;
     }
-
-    main h3 {
-        font-size: calc(14px + 1vw);
-    }
-
-    main p {
-        font-size: calc(12px + 0.8vw);
+    footer {
+        order: 3; /*force footer to bottom*/
     }
 }
-

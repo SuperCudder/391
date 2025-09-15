@@ -41,13 +41,8 @@ function calculator(op) {
 function display(result) {
     let outputElement = document.getElementById("output");
     outputElement.innerHTML = String(result);
+    outputElement.className = "";
 
-    if (result < 0) {
-        outputElement.className = "negative-result";
-
-    } else {
-        outputElement.className = "";
-    }
 }
 
 function clearCalc() {
