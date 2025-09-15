@@ -188,22 +188,20 @@ footer a {
 
 /* calc layout/style*/
 #calculator-container {
-    margin-top: 30px;
-    padding: 20px;
+    margin: 0;
+    padding: 5px;
     background-color: #FAF3E0;
-    border: 2px solid #FF7D00;
 }
 
 #calculator { /*REQUIREMENT: js calculator*/
     background-color: #FAF3E0;
-    padding: 25px;
-    margin: auto; /*horizontal centering*/
+    padding: 10px;
     max-width: 400px;
 }
 
 #input-section { /*calc input boxes*/
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #input-section input {
@@ -240,7 +238,7 @@ footer a {
     background-color: #1A1A1A;
 }
 
-#result-section {
+#result-box {
     text-align: center;
     padding: 15px;
     background-color: #FAF3E0;
@@ -291,8 +289,6 @@ footer a {
     }
 
     img { /*main photo in index.html*/
-        order: 1; /*keep photo towards top, above text*/
-        float: left; /*probably a better aternative to this - currently moves pic to left above text when < 1000px*/
         max-width: 100%;
     }
 
@@ -330,23 +326,16 @@ footer a {
         font-size: calc(10px + 0.3vw);
     }
 
-    .idxMain main img {
-        order: 1;
-        float: none; /*center img in main*/
-        display: block;
-        margin: 0 auto 20px;
-    }
-
     main {
         width: 100%; /*full width on <1000px*/
         background-color: #FAF3E0;
-        padding: 20px;
+        padding: 10px;
         order: 2;
         max-width: 100%;
     }
 
     main h1 {
-        margin-right: 100px;
+        margin-right: 50px;
     }
 
     main h2 {
@@ -354,6 +343,10 @@ footer a {
         font-size: calc(20px + 0.5vw);
         margin-top: 25px;
         margin-bottom: 15px;
+    }
+
+    #calculator-container {
+
     }
 
     footer {
