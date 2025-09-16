@@ -300,6 +300,7 @@ footer a {
 
     nav ul { /*horizontal nav on smaller screen*/
         flex-direction: row;
+        flex-wrap: wrap;
     }
 
     nav li {
@@ -343,10 +344,6 @@ footer a {
         font-size: calc(20px + 0.5vw);
         margin-top: 25px;
         margin-bottom: 15px;
-    }
-
-    #calculator-container {
-
     }
 
     footer {
